@@ -7,7 +7,32 @@ const Command = require('../command.js');
 
 
 describe("Rover class", function() {
+  let testRover = new Rover();
+  let commands = [new Command('MOVE'), new Command('MODE_CHANGE'), new Command('STATUS_CHECK')];;
+  let myMessage = new Message('name', commands);
+  let testMessage = testRover.receiveMessage(myMessage);
 
-  // 7 tests here!
+  it("constructor sets position and default values for mode and generatorWatts", function(){
+    expect(testRover.position).toBe(Rover.position);
+    expect(testRover.mode).toBe('NORMAL');
+    expect(testRover.generatorWatts).toBe(110);
+  });
+  it("response returned by receiveMessage contains the name of the message", function(){
+    expect(testMessage[0]).toBe(myMessage.name);
+  });
+  it("response returned by receiveMessage includes two results if two commands are sent in the message", function(){
+    expect(testMessage[1]).toBe(myMessage.commands);
+  });
+  // it("responds correctly to the status check command", function(){
+  //   expect(testMessage[2]).toBe()
+  // });
+  // it("responds correctly to the mode change command", function(){
 
+  // });
+  // it("responds with a false completed value when attempting to move in LOW_POWER mode", function(){
+
+  // });
+  // it("responds with the position for the move command", function(){
+
+  // });
 });
