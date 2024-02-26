@@ -22,7 +22,7 @@ class Rover {
             if(this.mode === 'LOW_POWER'){
                results.push({completed: false})
             } else {
-               this.position += command.value;
+               this.position = command.value;
                results.push({completed: true});
             }
          } 
@@ -44,33 +44,6 @@ class Rover {
          position: this.position
       }
    }
-   // receiveMessage(message){
-   //    let results = [message.name, message.commands];
-   //    let roverStatus = `mode: ${this.mode}, generatorWatts: ${this.generatorWatts}, position: ${this.position}`;
-   //    if(message.commands === 'MOVE') {
-   //       this.position = position + message.commands.value;
-   //       return {completed: true};      
-   //    } else if(message.commands === 'STATUS_CHECK') {
-   //       return {completed: true, roverStatus: roverStatus};
-   //    } else if(message.commands === 'MODE_CHANGE') {
-   //       this.mode = 'LOW_POWER';
-   //       return {completed: true};
-   //    }
-   // }
 }
 
 module.exports = Rover;
-
-// let rover = new Rover(100);
-// let commands = [
-//    new Command('MOVE', 4321),
-//    new Command('STATUS_CHECK'),
-//    new Command('MODE_CHANGE', 'LOW_POWER'),
-//    new Command('MOVE', 3579),
-//    new Command('STATUS_CHECK')
-// ];
-// let message = new Message('TA power', commands);
-// let response = rover.receiveMessage(message);
-
-// console.log(rover);
-// console.log;
