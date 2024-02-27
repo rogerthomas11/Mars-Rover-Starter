@@ -15,8 +15,8 @@ class Rover {
    }
 
    getCommandResults(commands){
-      let results = new Array();
-      for (const i in commands) {
+      let results = [];
+      for (let i = 0; i < commands.length; i++) {
          let command = commands[i];
          if(command.commandType === 'MOVE') {
             if(this.mode === 'LOW_POWER'){
