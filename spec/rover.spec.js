@@ -18,7 +18,7 @@ describe("Rover class", function() {
     expect(testRover.generatorWatts).toBe(110);
   });
   it("response returned by receiveMessage contains the name of the message", function(){
-    expect(testMessage.name).toBe(myMessage.name);
+    expect(testMessage.name).toBe(myMessage.message);
   });
   it("response returned by receiveMessage includes two results if two commands are sent in the message", function(){
     expect(testMessage.results.length).toBe(myMessage.commands.length);
